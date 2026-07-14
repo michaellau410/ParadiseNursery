@@ -12,7 +12,7 @@ export const productListSlice = createSlice({
     name: "productList",
     initialState: [
         {
-            img: "./assets/forget_me_not.png",
+            img: "forget_me_not.png",
             name: "Forget Me Not",
             price: 20,
             quantity: 0,
@@ -20,7 +20,7 @@ export const productListSlice = createSlice({
             month: "May"
         },
         {
-            img: "./assets/anniversary_rose.png",
+            img: "anniversary_rose.png",
             name: "Anniversary Rose",
             price: 17,
             quantity: 0,
@@ -29,7 +29,7 @@ export const productListSlice = createSlice({
         },
 
         {
-            img: "./assets/iris.png",
+            img: "iris.png",
             name: "Iris",
             price: 15,
             quantity: 0,
@@ -37,7 +37,7 @@ export const productListSlice = createSlice({
             month: "June"
           },
           {
-            img: "./assets/bellflower.png",
+            img: "bellflower.png",
             name: "Bellflower",
             price: 30,
             quantity: 0,
@@ -46,7 +46,7 @@ export const productListSlice = createSlice({
           },
 
           {
-            img: "./assets/orchid_cactus.png",
+            img: "orchid_cactus.png",
             name: "Orchid Cactus",
             cost: 35,
             quantity: 0,
@@ -54,7 +54,7 @@ export const productListSlice = createSlice({
             month: "July"
           },
           {
-            img: "./assets/bird_of_paradise.png",
+            img: "brid_of_paradise.png",
             name: "Bird of Paradise",
             cost: 55,
             quantity: 0,

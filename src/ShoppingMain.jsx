@@ -210,7 +210,7 @@ const ShoppingMain = () => {
                                         <div className="flower_main" key={index}>
                                             <div className="flower_name">{item.name}</div>
                                             <div className="img-container">
-                                                <img src={item.img} alt={item.name} />
+                                                <img src={`${import.meta.env.BASE_URL}/images/${item.img}`} alt={item.name} />
                                             </div>
                                             <div className="flower_price">${item.price}</div>
                                             <div className="flower_desc">{item.desc}</div>
