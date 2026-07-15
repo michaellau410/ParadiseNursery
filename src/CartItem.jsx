@@ -44,7 +44,7 @@ const CartItem = ({ showCart, setShowCart }) => {
                                 <div class="product-price">${item.price}</div>
 
                                 <div class="quantity-controls">
-                                    <button class={item.quantity === 1 ? " btn-qty btn-disabled" : " btn-qty "} onClick={() => handleDecrementQuantity(item.name)} >-</button>
+                                    <button class={item.quantity === 0 ? " btn-qty btn-disabled" : " btn-qty "} onClick={() => handleDecrementQuantity(item.name)} >-</button>
                                     <span class="qty-value">{item.quantity}</span>
                                     <button class="btn-qty" onClick={() => handleIncrementQuantity(item.name)} >+</button>
                                 </div>
