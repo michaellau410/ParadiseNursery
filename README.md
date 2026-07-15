@@ -34,12 +34,12 @@ Make sure you have Node.js installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/michaellau410/ParadiseNursery.git
    ```
 
 2. **Navigate into the project folder:**
    ```bash
-   cd paradise-nursery
+   cd ParadiseNursery
    ```
 
 3. **Install the required dependencies:**
