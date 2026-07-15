@@ -1,4 +1,4 @@
-# 🌸 Paradise Nursery - E-Commerce Web App
+# 🌸 Paradise Nursery - e-Plant Shopping Web App
 
 Paradise Nursery is a premium React-based e-commerce platform dedicated to selling high-quality flowers and house plants. The application features a seamless shopping experience from plant discovery to a secure checkout layout, backed by a reliable doorstep delivery service.
 
@@ -34,7 +34,7 @@ Make sure you have Node.js installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/michaellau410/ParadiseNursery.git
+   git clone https://github.com/michaellau410/e-plantShopping.git
    ```
 
 2. **Navigate into the project folder:**
