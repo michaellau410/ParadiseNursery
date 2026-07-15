@@ -62,7 +62,7 @@ const CartItem = ({ showCart, setShowCart }) => {
                 </div>
                 <div></div>
                 <div className="button_container">
-                    <button className="btn-available-large">CheckOut</button>
+                    <button className="btn-available-large" onClick={() => alert("Coming Soon!")}>CheckOut</button>
                 </div>
             </div>
 

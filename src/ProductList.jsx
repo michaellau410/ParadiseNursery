@@ -11,7 +11,7 @@ import CartItem from "./CartItem";
 
 import { FiShoppingCart } from 'react-icons/fi';
 
-const ProductList = () => {
+const ProductList = ({showProductList, setShowProductList}) => {
 
     /* state.xxx where xxx is exported from store.js */
     /* everything about those flower groups */
@@ -184,6 +184,17 @@ const ProductList = () => {
                 </div>
 
                 <div class="navbar-center">
+                    <div onClick={() => {setShowProductList(false);setShowCart(false);}
+                    }>
+                        Home
+                    </div>
+                    <div onClick={() => {setShowProductList(true);setShowCart(false);}
+                    }>
+                        Product
+                    </div>
+                    <div onClick={() => setShowCart(true)}>
+                        Cart
+                    </div>
 
                 </div>
 

@@ -5,10 +5,9 @@ import AboutUs from "./AboutUs";
 
 function App() {
 
-    /* to show SHoppingMain after clicking "Get Started" */
-    const [showMain, setShowMain] = useState(false);
+    const [showProductList, setShowProductList] = useState(false);
     const handleGetStarted = () => {
-        setShowMain(true);
+        setShowProductList(true);
     };
 
     return (
@@ -30,8 +29,8 @@ function App() {
                 </div>
             </header>
 
-            <div className={`event-list-container ${showMain ? 'visible' : ''}`}>
-                <ProductList />
+            <div className={`event-list-container ${showProductList ? 'visible' : ''}`}>
+                <ProductList showProductList={showProductList} setShowProductList={setShowProductList} />
             </div>
         </>
     );
