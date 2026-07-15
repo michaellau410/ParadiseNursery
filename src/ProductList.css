@@ -134,10 +134,10 @@
 
   .cart_number {
     position: absolute;
-    top: 9px;  
+    top: 12px;  
     left: 18px;
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 1;
     color: white; 
     pointer-events: none; 

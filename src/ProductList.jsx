@@ -188,15 +188,11 @@ const ProductList = () => {
                 </div>
 
                 <div className="navbar-right">
-                    <button className="icon_button" onClick={() => setShowCart(!showCart)} aria-label="Show cart">
-
-
-                        <div className="cart_container">
-                            <FiShoppingCart color="white" size="38px" />
+                        <div className="cart_container" onClick={() => setShowCart(!showCart)} aria-label="Show cart">
+                            <FiShoppingCart color="white" size="44px" stroke-width="1" />
                             <span className="cart_number">{noItemsInCart}</span>
                         </div>
 
-                    </button>
                 </div>
             </nav>
 
