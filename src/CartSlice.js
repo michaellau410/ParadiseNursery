@@ -70,21 +70,30 @@ export const CartSlice = createSlice({
         addToCart: (state, action) => {
             const item = state.items.find(item=>item.name === action.payload);
             if (item && item.quantity===0) {
-                item.quantity++;
-                console.log(item.name + ' ' + item.quantity);
+                item.quantity = 1;
+                
+            }
+        },
+
+        removeFromCart: (state, action) => {
+            const item = state.items.find(item=>item.name === action.payload);
+            if (item) {
+                item.quantity = 0;
             }
         },
 
         incrementQuantity: (state, action) => {
             const item = state.items.find(item=>item.name === action.payload);
             if (item) {
-
                 item.quantity++;
-                console.log(item.name + ' ' + item.quantity);
             }
         },
-        decrementQuantity: (state, action) => {
 
+        decrementQuantity: (state, action) => {
+            const item = state.items.find(item=>item.name === action.payload);
+            if (item && item.quantity > 0) {
+                item.quantity--;
+            }
         },
     },
 });
@@ -94,5 +103,5 @@ export const readQuantity = (state) => state.cart.items.reduce((sum, item) => su
 
 
 export const productItems = (state) => state.cart?.items || [];
-export const { incrementQuantity, decrementQuantity, addToCart} = CartSlice.actions;
+export const { incrementQuantity, decrementQuantity, addToCart, removeFromCart} = CartSlice.actions;
 export default CartSlice.reducer;

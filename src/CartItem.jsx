@@ -13,7 +13,26 @@ const CartItem = () => {
 
     return (
         <>
-            <div>this is from cartitem.jsx</div>
+            <div class="cart-item">
+    <img class="product-img" src="https://unsplash.com" alt="Peace Lily"/>
+    
+    <div class="product-details">
+      <div>
+        <h2 class="product-title">Peace Lily</h2>
+        <div class="product-price">$18</div>
+        
+        <div class="quantity-controls">
+          <button class="btn-qty">-</button>
+          <span class="qty-value">2</span>
+          <button class="btn-qty">+</button>
+        </div>
+        
+        <div class="total-price">Total: $36</div>
+      </div>
+      
+      <button class="btn-delete">Delete</button>
+    </div>
+  </div>
         </>
     )
 
