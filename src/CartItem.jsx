@@ -1,38 +1,73 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import "./CartItem.css";
 
+import { incrementQuantity, decrementQuantity, removeFromCart } from "./CartSlice";
+import { productItems, readCartAmount } from "./CartSlice";
 
-const CartItem = () => {
 
-    /* get the current cart */
-    //const cart = useSelector((state) => state.cart);
 
-    /* init total no. of item in cart to 0 */
-    //const [noItemInCart, setNoItemInCart] = useState(0);
+const CartItem = ({ showCart, setShowCart }) => {
 
+    const items = useSelector(productItems);
+    const dispatch = useDispatch();
+    const totalAmount = useSelector(readCartAmount);
+
+    const handleRemoveFromCart = (itemName) => {
+        dispatch(removeFromCart(itemName));
+    };
+
+    const handleIncrementQuantity = (index) => {
+        dispatch(incrementQuantity(index));
+    };
+
+    const handleDecrementQuantity = (index) => {
+        dispatch(decrementQuantity(index));
+    };
 
     return (
         <>
-            <div class="cart-item">
-    <img class="product-img" src="https://unsplash.com" alt="Peace Lily"/>
-    
-    <div class="product-details">
-      <div>
-        <h2 class="product-title">Peace Lily</h2>
-        <div class="product-price">$18</div>
-        
-        <div class="quantity-controls">
-          <button class="btn-qty">-</button>
-          <span class="qty-value">2</span>
-          <button class="btn-qty">+</button>
-        </div>
-        
-        <div class="total-price">Total: $36</div>
-      </div>
-      
-      <button class="btn-delete">Delete</button>
-    </div>
-  </div>
+            <div className="cart-information">
+
+
+                <div className="title-label-2">Total Cart Amount ${totalAmount}</div>
+
+                {items.filter((item) => item.quantity > 0).map((item, index) => (
+                    <div class="cart-item">
+                        <div className="img-container">
+                            <img src={`${import.meta.env.BASE_URL}/images/${item.img}`} alt={item.name} />
+                        </div>
+
+                        <div class="product-details">
+                            <div>
+                                <h2 class="product-title">{item.name}</h2>
+                                <div class="product-price">${item.price}</div>
+
+                                <div class="quantity-controls">
+                                    <button class={item.quantity === 1 ? " btn-qty btn-disabled" : " btn-qty "} onClick={() => handleDecrementQuantity(item.name)} >-</button>
+                                    <span class="qty-value">{item.quantity}</span>
+                                    <button class="btn-qty" onClick={() => handleIncrementQuantity(item.name)} >+</button>
+                                </div>
+
+                                <div class="total-price">Total: ${item.quantity * item.price}</div>
+                            </div>
+
+                            <button class="btn-delete" onClick={() => handleRemoveFromCart(item.name)}>Delete</button>
+                        </div>
+                    </div>
+                ))}
+                <div></div>
+                <div className="button_container">
+                    <button className="btn-available-large" onClick={() => setShowCart(!showCart)} >Coutinue Shopping</button>
+                </div>
+                <div></div>
+                <div className="button_container">
+                    <button className="btn-available-large">CheckOut</button>
+                </div>
+            </div>
+
+
+
         </>
     )
 

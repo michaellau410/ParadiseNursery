@@ -91,7 +91,7 @@ export const CartSlice = createSlice({
 
         decrementQuantity: (state, action) => {
             const item = state.items.find(item=>item.name === action.payload);
-            if (item && item.quantity > 0) {
+            if (item && item.quantity > 1) {
                 item.quantity--;
             }
         },
@@ -100,6 +100,8 @@ export const CartSlice = createSlice({
 
 
 export const readQuantity = (state) => state.cart.items.reduce((sum, item) => sum + (item.quantity || 0), 0);
+
+export const readCartAmount = (state) => state.cart.items.reduce((sum, item) => sum + ((item.quantity * item.price) || 0), 0);
 
 
 export const productItems = (state) => state.cart?.items || [];

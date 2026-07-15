@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./ProductList.css";
-import { incrementQuantity, decrementQuantity, addToCart } from "./CartSlice";
+import { addToCart } from "./CartSlice";
 import { HARDCODED_CATALOGUE } from "./CartSlice";
 
 import { productItems, readQuantity } from "./CartSlice";
@@ -188,10 +188,10 @@ const ProductList = () => {
                 </div>
 
                 <div className="navbar-right">
-                        <div className="cart_container" onClick={() => setShowCart(!showCart)} aria-label="Show cart">
-                            <FiShoppingCart color="white" size="44px" stroke-width="1" />
-                            <span className="cart_number">{noItemsInCart}</span>
-                        </div>
+                    <div className="cart_container" onClick={() => setShowCart(!showCart)} aria-label="Show cart">
+                        <FiShoppingCart color="white" size="44px" stroke-width="1" />
+                        <span className="cart_number">{noItemsInCart}</span>
+                    </div>
 
                 </div>
             </nav>
@@ -208,7 +208,7 @@ const ProductList = () => {
                             {
                                 HARDCODED_CATALOGUE.map((cat) => (
                                     <>
-                                        <div className="transparent-text-box">{cat.name} Flower Selection</div>
+                                        <div className="title-label-1">{cat.name} Flower Selection</div>
                                         <div id="productList" className="flower_container container_main">
                                             <div className="flower_selection">
                                                 {items.filter((item) => item.cat === cat.name).map((item, index) => (
@@ -238,9 +238,7 @@ const ProductList = () => {
 
                         </div>
                     ) : (
-                        <div className="total_amount_detail">
-                           <CartItem />
-                        </div>
+                        <CartItem showCart={showCart} setShowCart={setShowCart}/>
                     )
                 }
 
