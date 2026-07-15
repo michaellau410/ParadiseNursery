@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./ProductList.css";
-import { incrementQuantity, decrementQuantity } from "./CartSlice";
+import { incrementQuantity, decrementQuantity, addToCart } from "./CartSlice";
 import { HARDCODED_CATALOGUE } from "./CartSlice";
 
-import { productItems, noOfItemInCard } from "./CartSlice";
+import { productItems, readQuantity } from "./CartSlice";
 
 import CartItem from "./CartItem";
 
-import { FaShoppingCart } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const ShoppingMain = () => {
 
     /* state.xxx where xxx is exported from store.js */
     /* everything about those flower groups */
     const items = useSelector(productItems);
-    const noItemsInCart = useSelector(noOfItemInCard);
+    const noItemsInCart = useSelector(readQuantity);
 
     /* this is for decising show prodict list or shop cart */
     const [showCart, setShowCart] = useState(false);
@@ -25,9 +25,11 @@ const ShoppingMain = () => {
     const dispatch = useDispatch();
 
     /* call reducer to take action */
-    const handleAddToCartCart = (itemName) => {
-       dispatch(incrementQuantity(itemName));
+    const handleAddToCart = (itemName) => {
+       dispatch(addToCart(itemName));
     };
+
+    //const noItemsInCart = (state) => state.noItemsInCart;
 
     //const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
 
@@ -190,7 +192,7 @@ const ShoppingMain = () => {
         
 
         <div className="cart_container">
-          <FaShoppingCart color="white" size="35px" />
+          <FiShoppingCart color="white" size="38px" />
           <span className="cart_number">{noItemsInCart}</span>
         </div>
 
@@ -225,7 +227,7 @@ const ShoppingMain = () => {
                                                 <button
                                                     className={item.quantity >= 1 ?
                                                          " btn-not-available btn-disabled": " btn-available" }
-                                                    onClick={() => handleAddToCartCart(item.name)}
+                                                    onClick={() => handleAddToCart(item.name)}
                                                 >
                                                     Add{item.quantity >= 1 ?"ed":""} to Cart
                                                 </button>
