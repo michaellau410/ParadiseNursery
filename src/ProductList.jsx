@@ -26,7 +26,11 @@ const ProductList = ({showProductList, setShowProductList}) => {
 
     /* call reducer to take action */
     const handleAddToCart = (itemName) => {
-        dispatch(updateQuantity(itemName));
+        const found  = items.find( item => item.name === itemName && item.quality > 0 );
+        if(!found)
+        {
+            dispatch(updateQuantity(itemName));
+        }
     };
 
     //const noItemsInCart = (state) => state.noItemsInCart;
